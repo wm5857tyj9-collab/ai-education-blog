@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI赋能教育 · 个人博客</title>
+  <meta name="description" content="围绕AI赋能教育的个人博客，包含文章列表、文章详情、标签分类和关于页。">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#/home" aria-label="返回首页">
+        <span class="brand-mark">AI</span>
+        <span class="brand-text">
+          <strong>AI赋能教育</strong>
+          <small>个人博客</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="主导航">
+        <a href="#/home">首页</a>
+        <a href="#/tags">标签</a>
+        <a href="#/about">关于</a>
+      </nav>
+
+      <label class="search" for="global-search">
+        <span>搜索</span>
+        <input id="global-search" type="search" placeholder="搜文章、标签或关键词">
+      </label>
+    </header>
+
+    <main id="app" class="app-main" aria-live="polite"></main>
+
+    <footer class="footer">
+      <p>AI赋能教育 · 记录教学实践、工具方法与教育思考。</p>
+      <p>本地静态博客</p>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.playwright-cli/
+.npm-cache/
+node_modules/
+Thumbs.db
+*.log
+

@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "ai-prep-workflow",
+    "title": "AI如何重塑备课流程：从素材检索到教案生成",
+    "date": "2026-06-29",
+    "file": "ai-prep-workflow.json"
+  },
+  {
+    "slug": "ai-classroom-support",
+    "title": "课堂里的第二个提示器：AI如何支持分层提问",
+    "date": "2026-06-21",
+    "file": "ai-classroom-support.json"
+  },
+  {
+    "slug": "ai-assessment-feedback",
+    "title": "作业批改的下一步，不是更快，而是更准",
+    "date": "2026-06-13",
+    "file": "ai-assessment-feedback.json"
+  },
+  {
+    "slug": "ai-literacy-curriculum",
+    "title": "校本课程如何嵌入AI素养",
+    "date": "2026-06-04",
+    "file": "ai-literacy-curriculum.json"
+  },
+  {
+    "slug": "teacher-knowledge-base",
+    "title": "教师的AI协作工作流：把零散灵感变成稳定方法",
+    "date": "2026-05-28",
+    "file": "teacher-knowledge-base.json"
+  },
+  {
+    "slug": "ai-ethics-school",
+    "title": "生成式AI进入校园后，边界应该怎么画",
+    "date": "2026-05-18",
+    "file": "ai-ethics-school.json"
+  }
+]

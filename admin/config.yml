@@ -1,0 +1,89 @@
+backend:
+  name: git-gateway
+  branch: master
+
+site_url: /
+display_url: /
+logo_url: /
+
+media_folder: ""
+public_folder: ""
+
+publish_mode: simple
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 文章
+    folder: content/posts
+    create: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    sort: "date:desc"
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+      - label: 标题
+        name: title
+        widget: string
+      - label: 日期
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+      - label: 阅读时长
+        name: minutes
+        widget: number
+        value_type: int
+        min: 1
+        max: 60
+        step: 1
+      - label: 分类
+        name: category
+        widget: string
+      - label: 摘要
+        name: excerpt
+        widget: text
+      - label: 标签
+        name: tags
+        widget: list
+        field:
+          label: 标签
+          name: tag
+          widget: string
+      - label: 封面色
+        name: cover
+        widget: list
+        min: 2
+        max: 2
+        field:
+          label: 颜色
+          name: color
+          widget: string
+      - label: 注释
+        name: note
+        widget: text
+      - label: 正文分节
+        name: sections
+        widget: list
+        fields:
+          - label: 小节标题
+            name: heading
+            widget: string
+          - label: 段落
+            name: paragraphs
+            widget: list
+            field:
+              label: 段落
+              name: paragraph
+              widget: text
+          - label: 要点
+            name: bullets
+            widget: list
+            field:
+              label: 要点
+              name: bullet
+              widget: string

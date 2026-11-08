@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const test = require("node:test");
-const { buildIndex } = require("./build-index");
+const { buildIndex, checkIndex } = require("./build-index");
 const { validatePosts } = require("./validate-posts");
 
 function makePost(overrides = {}) {
@@ -77,6 +77,23 @@ test("orders same-day series entries by descending series number", () => {
     }
     const entries = buildIndex(postsDir, indexFile);
     assert.deepEqual(entries.map((entry) => entry.slug), ["workbuddy-education-02", "workbuddy-education-01"]);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checks that the generated index matches the article files", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "blog-index-check-"));
+  const postsDir = path.join(root, "posts");
+  const indexFile = path.join(root, "posts-index.json");
+  fs.mkdirSync(postsDir);
+  fs.writeFileSync(path.join(postsDir, "sample-post.json"), JSON.stringify(makePost()), "utf8");
+  try {
+    buildIndex(postsDir, indexFile);
+    assert.equal(checkIndex(postsDir, indexFile).length, 1);
+    fs.writeFileSync(indexFile, "[]\n", "utf8");
+    assert.throws(() => checkIndex(postsDir, indexFile), /文章索引与文章文件不一致/);
+    assert.equal(fs.readFileSync(indexFile, "utf8"), "[]\n");
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }

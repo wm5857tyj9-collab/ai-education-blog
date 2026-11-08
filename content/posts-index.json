@@ -1,15 +1,15 @@
 [
   {
-    "slug": "workbuddy-education-01",
-    "title": "WorkBuddy 教育应用系列 01：让 AI Agent 成为教师的备课协作员",
-    "date": "2026-11-08",
-    "file": "workbuddy-education-01.json"
-  },
-  {
     "slug": "workbuddy-education-02",
     "title": "WorkBuddy 教育应用系列 02：把备课需求写成可执行、可验收的任务",
     "date": "2026-11-08",
     "file": "workbuddy-education-02.json"
+  },
+  {
+    "slug": "workbuddy-education-01",
+    "title": "WorkBuddy 教育应用系列 01：让 AI Agent 成为教师的备课协作员",
+    "date": "2026-11-08",
+    "file": "workbuddy-education-01.json"
   },
   {
     "slug": "ai-prep-workflow",

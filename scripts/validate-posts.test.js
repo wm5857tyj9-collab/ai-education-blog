@@ -65,3 +65,19 @@ test("keeps the existing index unchanged when article validation fails", () => {
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("orders same-day series entries by descending series number", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "blog-sort-"));
+  const postsDir = path.join(root, "posts");
+  const indexFile = path.join(root, "posts-index.json");
+  fs.mkdirSync(postsDir);
+  try {
+    for (const slug of ["workbuddy-education-01", "workbuddy-education-02"]) {
+      fs.writeFileSync(path.join(postsDir, `${slug}.json`), JSON.stringify(makePost({ slug })), "utf8");
+    }
+    const entries = buildIndex(postsDir, indexFile);
+    assert.deepEqual(entries.map((entry) => entry.slug), ["workbuddy-education-02", "workbuddy-education-01"]);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

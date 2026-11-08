@@ -661,14 +661,14 @@ async function loadArticles() {
   render();
 
   try {
-    state.articles = await loadFromGitHub();
-  } catch (githubError) {
+    state.articles = await loadFromLocalIndex();
+  } catch (localError) {
     try {
-      state.articles = await loadFromLocalIndex();
-    } catch (localError) {
+      state.articles = await loadFromGitHub();
+    } catch (githubError) {
       state.articles = [];
-      state.error = `文章加载失败：${githubError.message || githubError}。`;
-      console.error(githubError, localError);
+      state.error = `文章加载失败：${localError.message || localError}。`;
+      console.error(localError, githubError);
     }
   } finally {
     state.loading = false;

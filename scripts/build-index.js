@@ -13,7 +13,7 @@ function buildIndex(sourceDir = postsDir, outputFile = indexFile) {
       date: article.date,
       file,
     }))
-    .sort((left, right) => new Date(right.date) - new Date(left.date) || left.slug.localeCompare(right.slug, "zh-CN"));
+    .sort((left, right) => new Date(right.date) - new Date(left.date) || right.slug.localeCompare(left.slug, "zh-CN"));
 
   fs.writeFileSync(outputFile, `${JSON.stringify(entries, null, 2)}\n`, "utf8");
   return entries;

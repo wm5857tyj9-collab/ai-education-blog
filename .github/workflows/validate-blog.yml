@@ -5,6 +5,9 @@ on:
     branches: [master]
     paths:
       - "content/posts/**"
+      - "admin/**"
+      - "app.js"
+      - "styles.css"
       - "scripts/**"
       - ".github/workflows/validate-blog.yml"
       - "netlify.toml"
@@ -12,6 +15,9 @@ on:
     branches: [master]
     paths:
       - "content/posts/**"
+      - "admin/**"
+      - "app.js"
+      - "styles.css"
       - "scripts/**"
       - ".github/workflows/validate-blog.yml"
       - "netlify.toml"
@@ -25,5 +31,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --test scripts/validate-posts.test.js
+      - run: node --test
       - run: node scripts/validate-posts.js
+      - run: node scripts/build-index.js

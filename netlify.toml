@@ -1,5 +1,5 @@
 [build]
-  command = "node --test scripts/validate-posts.test.js && node scripts/build-index.js"
+  command = "node --test && node scripts/build-index.js"
   publish = "."
 
 [build.environment]

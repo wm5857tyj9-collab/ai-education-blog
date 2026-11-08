@@ -1,0 +1,29 @@
+name: Validate blog content
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "content/posts/**"
+      - "scripts/**"
+      - ".github/workflows/validate-blog.yml"
+      - "netlify.toml"
+  pull_request:
+    branches: [master]
+    paths:
+      - "content/posts/**"
+      - "scripts/**"
+      - ".github/workflows/validate-blog.yml"
+      - "netlify.toml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test scripts/validate-posts.test.js
+      - run: node scripts/validate-posts.js

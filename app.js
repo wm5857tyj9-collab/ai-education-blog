@@ -644,7 +644,7 @@ async function loadFromGitHub() {
 }
 
 async function loadFromLocalIndex() {
-  const index = await fetchJson("./content/posts/index.json");
+  const index = await fetchJson("./content/posts-index.json");
   const articles = await Promise.all(
     index.map(async (entry) => {
       const article = await fetchJson(`./content/posts/${entry.file}`);

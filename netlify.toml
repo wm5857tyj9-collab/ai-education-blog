@@ -2,6 +2,9 @@
   command = "node scripts/build-index.js"
   publish = "."
 
+[build.environment]
+  NODE_VERSION = "22"
+
 [[redirects]]
   from = "/admin"
   to = "/admin/"

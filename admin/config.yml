@@ -2,13 +2,6 @@ backend:
   name: git-gateway
   branch: master
 
-site_url: /
-display_url: /
-logo_url: /
-
-media_folder: ""
-public_folder: ""
-
 publish_mode: simple
 
 collections:
@@ -25,15 +18,21 @@ collections:
       - label: Slug
         name: slug
         widget: string
+        hint: "使用唯一的小写英文 slug，例如 workbuddy-education-03；需与文章文件名一致。"
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "仅使用小写英文字母、数字和连字符。"
       - label: 标题
         name: title
         widget: string
+        required: true
       - label: 日期
         name: date
         widget: datetime
         format: "YYYY-MM-DD"
         date_format: "YYYY-MM-DD"
         time_format: false
+        required: true
       - label: 阅读时长
         name: minutes
         widget: number
@@ -41,15 +40,20 @@ collections:
         min: 1
         max: 60
         step: 1
+        default: 5
+        required: true
       - label: 分类
         name: category
         widget: string
+        required: true
       - label: 摘要
         name: excerpt
         widget: text
+        required: true
       - label: 标签
         name: tags
         widget: list
+        required: true
         field:
           label: 标签
           name: tag
@@ -59,6 +63,7 @@ collections:
         widget: list
         min: 2
         max: 2
+        required: true
         field:
           label: 颜色
           name: color
@@ -66,9 +71,11 @@ collections:
       - label: 注释
         name: note
         widget: text
+        required: true
       - label: 正文分节
         name: sections
         widget: list
+        required: true
         fields:
           - label: 小节标题
             name: heading
